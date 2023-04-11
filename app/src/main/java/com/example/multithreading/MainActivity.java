@@ -31,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
                         int seconds = c.get(Calendar.SECOND);
                         String time = hours + ":" + minutes + ":" + seconds;
                         // отображаем в текстовом поле
-                        textView.setText(time);
+                        textView.post(new Runnable() {
+                            public void run() {
+                                textView.setText(time);
+                            }
+                        });
                     }
                 };
                 // Определяем объект Thread - новый поток
